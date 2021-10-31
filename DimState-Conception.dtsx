@@ -1,0 +1,1340 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/8/2021 3:57:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-PQGJ7EU"
+  DTS:CreatorName="DESKTOP-PQGJ7EU\pc"
+  DTS:DTSID="{C72B1627-C8D1-4377-B632-52C9B2009F01}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DimState-Conception"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{8D9B1E92-D55E-47BB-8DF9-20FE49043803}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-PQGJ7EU.NorthwindDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2CFA4026-AE4F-4665-851A-FDDE3B5E70DE}"
+      DTS:ObjectName="DESKTOP-PQGJ7EU.NorthwindDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-PQGJ7EU;Initial Catalog=NorthwindDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B761C93B-90BF-4B5C-A05A-0463821A20DF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Charger DimState"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Charger DimState"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DimState]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Charger DimState.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-PQGJ7EU.NorthwindDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-PQGJ7EU.NorthwindDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].Columns[Copie de StateCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Copie de StateCode"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[StateCode]"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de StateCode]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].Columns[Copie de RegionName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copie de RegionName"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[RegionName]"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de RegionName]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].Columns[Copie de RegionCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Copie de RegionCode"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[RegionCode]"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de RegionCode]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].Columns[Copie de Country_Id]"
+                      cachedDataType="ui8"
+                      cachedName="Copie de Country_Id"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[CountryKey]"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Country_Id]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].Columns[Copie de EnglishStateName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copie de EnglishStateName"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[EnglishStateName]"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de EnglishStateName]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].Columns[Copie de StateName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copie de StateName"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[StateName]"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de StateName]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].Columns[Copie de type]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copie de type"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[StateType]"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de type]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].Columns[Copie de StateCapital]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copie de StateCapital"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[StateCapital]"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de StateCapital]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[StateKey]"
+                      dataType="i4"
+                      name="StateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[StateName]"
+                      dataType="wstr"
+                      length="40"
+                      name="StateName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[EnglishStateName]"
+                      dataType="wstr"
+                      length="40"
+                      name="EnglishStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[StateType]"
+                      dataType="wstr"
+                      length="40"
+                      name="StateType" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[StateCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[StateCapital]"
+                      dataType="wstr"
+                      length="40"
+                      name="StateCapital" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[RegionName]"
+                      dataType="wstr"
+                      length="40"
+                      name="RegionName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[RegionCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="RegionCode" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB].ExternalColumns[CountryKey]"
+                      dataType="i4"
+                      name="CountryKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Charger DimState.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Charger DimState.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Charger DimState.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Charger DimState.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données].Columns[type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[type]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données].Columns[StateName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StateName"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateName]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données].Columns[StateCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StateCode"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateCode]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données].Columns[EnglishStateName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EnglishStateName"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[EnglishStateName]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données].Columns[StateCapital]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StateCapital"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateCapital]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données].Columns[RegionName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RegionName"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[RegionName]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données].Columns[RegionCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RegionCode"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[RegionCode]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données].Columns[Country_Id]"
+                      cachedDataType="ui8"
+                      cachedName="Country_Id"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[Country_Id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de type]"
+                      name="Copie de type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de StateName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de StateName]"
+                      name="Copie de StateName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de StateCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de StateCode]"
+                      name="Copie de StateCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de EnglishStateName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de EnglishStateName]"
+                      name="Copie de EnglishStateName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[EnglishStateName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de StateCapital]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de StateCapital]"
+                      name="Copie de StateCapital"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateCapital]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de RegionName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de RegionName]"
+                      name="Copie de RegionName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[RegionName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de RegionCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de RegionCode]"
+                      name="Copie de RegionCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[RegionCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Country_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Country_Id]"
+                      name="Copie de Country_Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[Country_Id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Extrait des données d'un fichier XML. Par exemple, extrayez des données de catalogue d'un fichier XML représentant des catalogues et des éléments de catalogue. Avant de l'utiliser, spécifiez le schéma et générez une sortie pour chaque élément XML.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Extrait des données d'un fichier XML. Par exemple, extrayez des données de catalogue d'un fichier XML représentant des catalogues et des éléments de catalogue. Avant de l'utiliser, spécifiez le schéma et générez une sortie pour chaque élément XML."
+              name="Extraire du Fichier XML Territories"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                <property
+                  dataType="System.String"
+                  description="Les données XML utilisées par l'adaptateur de source XML."
+                  expressionType="Notify"
+                  name="XMLData">C:\Users\pc\Downloads\Project Files -ETL\Project Files\Territories.xml</property>
+                <property
+                  dataType="System.String"
+                  description="La variable utilisée par l'adaptateur de source XML pour spécifier les données XML."
+                  name="XMLDataVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Définit la manière dont l'adaptateur de source XML se procure des données XML."
+                  name="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La définition de schéma XML utilisée par l'adaptateur de source XML."
+                  expressionType="Notify"
+                  name="XMLSchemaDefinition">C:\Users\pc\Downloads\Project Files -ETL\Project Files\Territories.xsd</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique s'il faut ou non utiliser le schéma inclus."
+                  name="UseInlineSchema">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Définit la façon dont les types d'entiers XML sont mappés."
+                  name="XMLIntegerMapping"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State]"
+                  name="State">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifie l'ensemble de lignes associé à la sortie."
+                      name="RowsetID">State</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[type]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[type]"
+                      name="type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[StateName]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateName]"
+                      name="StateName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[StateCode]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateCode]"
+                      name="StateCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[EnglishStateName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[EnglishStateName]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[EnglishStateName]"
+                      name="EnglishStateName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateCapital]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[StateCapital]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[StateCapital]"
+                      name="StateCapital"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[RegionName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[RegionName]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[RegionName]"
+                      name="RegionName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[RegionCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[RegionCode]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[RegionCode]"
+                      name="RegionCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[Country_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[Country_Id]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].Columns[Country_Id]"
+                      name="Country_Id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[type]"
+                      dataType="wstr"
+                      length="255"
+                      name="type">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[StateName]"
+                      dataType="wstr"
+                      length="255"
+                      name="StateName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[StateCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="StateCode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[EnglishStateName]"
+                      dataType="wstr"
+                      length="255"
+                      name="EnglishStateName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[StateCapital]"
+                      dataType="wstr"
+                      length="255"
+                      name="StateCapital">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[RegionName]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[RegionCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionCode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State].ExternalColumns[Country_Id]"
+                      dataType="ui8"
+                      name="Country_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt64</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State]"
+                  isErrorOut="true"
+                  name="Affichage des erreurs State">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifie l'ensemble de lignes associé à la sortie."
+                      name="RowsetID">State</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[type]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[type]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[type]"
+                      name="type" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[StateName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[StateName]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[StateName]"
+                      name="StateName" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[StateCode]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[StateCode]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[StateCode]"
+                      name="StateCode" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[EnglishStateName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[EnglishStateName]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[EnglishStateName]"
+                      name="EnglishStateName" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[StateCapital]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[StateCapital]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[StateCapital]"
+                      name="StateCapital" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[RegionName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[RegionName]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[RegionName]"
+                      name="RegionName" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[RegionCode]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[RegionCode]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[RegionCode]"
+                      name="RegionCode" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[Country_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[Country_Id]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[Country_Id]"
+                      name="Country_Id" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[type]"
+                      dataType="nText"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[StateName]"
+                      dataType="nText"
+                      name="StateName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[StateCode]"
+                      dataType="nText"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[EnglishStateName]"
+                      dataType="nText"
+                      name="EnglishStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[StateCapital]"
+                      dataType="nText"
+                      name="StateCapital" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[RegionName]"
+                      dataType="nText"
+                      name="RegionName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[RegionCode]"
+                      dataType="nText"
+                      name="RegionCode" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs State].ExternalColumns[Country_Id]"
+                      dataType="nText"
+                      name="Country_Id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country]"
+                  name="Country">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifie l'ensemble de lignes associé à la sortie."
+                      name="RowsetID">Country</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[Country_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[Country_Id]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[Country_Id]"
+                      name="Country_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[CountryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[CountryName]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[CountryName]"
+                      name="CountryName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[CountryCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[CountryCode]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[CountryCode]"
+                      name="CountryCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[CountryCapital]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[CountryCapital]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[CountryCapital]"
+                      name="CountryCapital"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[Population]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[Population]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[Population]"
+                      name="Population"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[Subdivision]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[Subdivision]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[Subdivision]"
+                      name="Subdivision"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[Area_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[Area_Id]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].Columns[Area_Id]"
+                      name="Area_Id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[Country_Id]"
+                      dataType="ui8"
+                      name="Country_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt64</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[CountryName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CountryName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[CountryCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="CountryCode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[CountryCapital]"
+                      dataType="wstr"
+                      length="255"
+                      name="CountryCapital">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[Population]"
+                      dataType="ui4"
+                      name="Population">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[Subdivision]"
+                      dataType="wstr"
+                      length="255"
+                      name="Subdivision">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Country].ExternalColumns[Area_Id]"
+                      dataType="ui8"
+                      name="Area_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt64</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country]"
+                  isErrorOut="true"
+                  name="Affichage des erreurs Country">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifie l'ensemble de lignes associé à la sortie."
+                      name="RowsetID">Country</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[Country_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[Country_Id]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[Country_Id]"
+                      name="Country_Id" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[CountryName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[CountryName]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[CountryName]"
+                      name="CountryName" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[CountryCode]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[CountryCode]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[CountryCode]"
+                      name="CountryCode" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[CountryCapital]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[CountryCapital]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[CountryCapital]"
+                      name="CountryCapital" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[Population]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[Population]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[Population]"
+                      name="Population" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[Subdivision]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[Subdivision]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[Subdivision]"
+                      name="Subdivision" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[Area_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[Area_Id]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[Area_Id]"
+                      name="Area_Id" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[Country_Id]"
+                      dataType="nText"
+                      name="Country_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[CountryName]"
+                      dataType="nText"
+                      name="CountryName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[CountryCode]"
+                      dataType="nText"
+                      name="CountryCode" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[CountryCapital]"
+                      dataType="nText"
+                      name="CountryCapital" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[Population]"
+                      dataType="nText"
+                      name="Population" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[Subdivision]"
+                      dataType="nText"
+                      name="Subdivision" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Country].ExternalColumns[Area_Id]"
+                      dataType="nText"
+                      name="Area_Id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Area]"
+                  name="Area">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifie l'ensemble de lignes associé à la sortie."
+                      name="RowsetID">Area</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Area].Columns[Area_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Area].ExternalColumns[Area_Id]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Area].Columns[Area_Id]"
+                      name="Area_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Area].Columns[AreaName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Area].ExternalColumns[AreaName]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Area].Columns[AreaName]"
+                      name="AreaName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Area].ExternalColumns[Area_Id]"
+                      dataType="ui8"
+                      name="Area_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt64</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Area].ExternalColumns[AreaName]"
+                      dataType="wstr"
+                      length="255"
+                      name="AreaName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area]"
+                  isErrorOut="true"
+                  name="Affichage des erreurs Area">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifie l'ensemble de lignes associé à la sortie."
+                      name="RowsetID">Area</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].Columns[Area_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].ExternalColumns[Area_Id]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].Columns[Area_Id]"
+                      name="Area_Id" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].Columns[AreaName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].ExternalColumns[AreaName]"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].Columns[AreaName]"
+                      name="AreaName" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].ExternalColumns[Area_Id]"
+                      dataType="nText"
+                      name="Area_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[Affichage des erreurs Area].ExternalColumns[AreaName]"
+                      dataType="nText"
+                      name="AreaName" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de conversion de données]"
+              endId="Package\Tâche de flux de données\Charger DimState.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\Tâche de flux de données\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[State]"
+              endId="Package\Tâche de flux de données\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="State"
+              startId="Package\Tâche de flux de données\Extraire du Fichier XML Territories.Outputs[State]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="117,57" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Tâche de flux de données\Charger DimState"
+          TopLeft="494,101" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\Tâche de flux de données\Extraire du Fichier XML Territories"
+          TopLeft="51,27" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Tâche de flux de données\Conversion de données"
+          TopLeft="183,123" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[State]"
+          TopLeft="174,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106.5,54"
+              Start="0,0"
+              End="106.5,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="102.5,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="102.5,27"
+                    Point2="106.5,27"
+                    Point3="106.5,31" />
+                  <mssgle:LineSegment
+                    End="106.5,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="41.18798828125,32,24.1240234375,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de conversion de données]"
+          TopLeft="378,144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116,-22"
+              Start="0,0"
+              End="108.5,-22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="54,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54,0"
+                    Point2="58,0"
+                    Point3="58,-4" />
+                  <mssgle:LineSegment
+                    End="58,-18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58,-18"
+                    Point2="58,-22"
+                    Point3="62,-22" />
+                  <mssgle:LineSegment
+                    End="108.5,-22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Charger DimState">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
